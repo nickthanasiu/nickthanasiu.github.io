@@ -1,10 +1,198 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Nick Thanasiu</title>
-        <meta name="description" content="Nick Thanasiu's Portfolio Site">
-    </head>
-    <body>
-        <h1>Hi, I'm Nick!</h1>
-    </body>
+  <head>
+    <title>Nick Thanasiu</title>
+    <meta name="description" content="Nick Thanasiu's Portfolio Site" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --main-bg-color: #000;
+        --main-text-color: #fff;
+        --purple: #260d56;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Lora", serif;
+        background-color: var(--main-bg-color);
+        color: var(--main-text-color);
+      }
+
+      a:visited {
+        color: inherit;
+      }
+
+      header {
+        position: fixed;
+        width: 100%;
+        z-index: 1040px;
+        background-color: var(--main-bg-color);
+      }
+
+      nav {
+        width: 100%;
+        max-width: 1600px;
+        height: 75px;
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        max-width: 90%;
+      }
+
+      nav ul li {
+        padding-left: 10px;
+        box-sizing: border-box;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 25px;
+      }
+
+      main {
+        padding-top: 90px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      p {
+        font-size: 24px;
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      section > div {
+        padding: 3em 0;
+        max-width: 90%;
+        margin: 0 auto;
+      }
+
+      #hero {
+        display: flex;
+        text-align: center;
+      }
+
+      #hero > div {
+        text-align: left;
+        
+      }
+
+      #hero p {
+        margin-top: 20px;
+      }
+
+      .icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .social-icon--animated {
+        animation: shake 0.5s;
+      }
+
+      #animation-trigger {
+        cursor: pointer;
+        background-color: var(--purple);
+        padding: 3px;
+      }
+    
+      @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li style="margin-left: auto">
+            <a
+              href="https://github.com/nickthanasiu"
+              class="social-icon"
+              target="_blank"
+              rel="noopener"
+            >
+              <img class="icon" src="./images/github.svg" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/nick-thanasiu-6b09931b9/"
+              class="social-icon"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="./images/linkedin.svg" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="hero">
+        <div>
+            <h1>Hi, I'm Nick! <span style="display: block; margin-top: 15px; font-size: 36px;">Welcome to my portfolio. This page is currently in the works</span></h1>
+            <p>In the meantime, check out <span id="animation-trigger">my GitHub and LinkedIn profiles above ^^^</span></p>
+        </div>
+      </section>
+    </main>
+
+    <script type="application/javascript" defer>
+        console.log('Welcome to my portfolio!');
+
+        const socialIcons = document.querySelectorAll('.social-icon');
+        const animationTrigger = document.getElementById('animation-trigger');
+
+        animationTrigger.addEventListener('mouseover', animateSocials);
+        animationTrigger.addEventListener('mouseleave', resetAnimation);
+
+        function animateSocials() {
+            socialIcons.forEach(icon => icon.setAttribute('class', 'social-icon--animated'));
+        }
+
+        function resetAnimation() {
+            socialIcons.forEach(icon => icon.removeAttribute('class', 'social-icon--animated'));
+        }
+    </script>
+  </body>
 </html>
