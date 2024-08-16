@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nick Thanasiu</title>
-    <meta name="description" content="Nick Thanasiu's Portfolio Site" />
+    <title>Nick Thanasiu | Parsenip</title>
+    <meta name="description" content="Nick Thanasiu's Portfolio Site " />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -30,14 +30,23 @@
         background-color: var(--main-bg-color);
         color: var(--main-text-color);
       }
+
+      iframe {
+        display: block;       /* iframes are inline by default */
+        background: #fff;
+        border: none;         /* Reset default border */
+        height: 100vh;        /* Viewport-relative units */
+        width: 100vw;
+    }
     </style>
   </head>
   <body>
     <header>
       <nav>
         <ul>
-          <!--<li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li> -->
+          <li>
+            <a href="../index.html">Home</a>
+          </li>
           <li style="margin-left: auto">
             <a
               href="https://github.com/nickthanasiu"
@@ -62,27 +71,8 @@
       </nav>
     </header>
     <main>
-      <section class="flex content-left mt-10">
-        <div>
-            <h1>Hi, I'm Nick!</h1>
-            <h2>Welcome to my portfolio. This page is currently in the works</h2>
-            <p class="mt-10">In the meantime, check out my GitHub and LinkedIn profiles above</p>
-            <p class="my-10">...or some of my projects below</p>
-        </div>
-      </section>
-      <section id="projects">
-        <h2 class="text-4xl">Projects</h2>
-        <section id="bespelling">
-          <h2 class="mt-5"><a href="./pages/bespelling.html">Be Spelling</a></h2>
-        </section>
-        <section id="parsenip">
-          <h2 class="mt-5"><a href="./pages/parsenip.html">Parsenip</a></h2>
-        </section>
-      </section>
+      <iframe src="https://browser-interpreter.onrender.com" frameborder="0"></iframe>
     </main>
 
-    <script type="application/javascript" defer>
-        console.log('Welcome to my portfolio!');
-    </script>
   </body>
 </html>
