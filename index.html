@@ -31,6 +31,14 @@
         color: var(--main-text-color);
       }
     </style>
+    <script>
+	console.log('Welcome to my portfolio!');
+	pingBeSpelling();
+	
+	async function pingBeSpelling() {
+		await fetch('https://be-spelling.onrender.com/');
+	}
+    </script>
   </head>
   <body>
     <header>
