@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Nick Thanasiu | Developer</title>
+  <title>Nick Thanasiu</title>
   <meta name="description" content="Nick Thanasiu's Portfolio Site" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <!-- Removed Three.js as it's no longer needed -->
+
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap" rel="stylesheet" />
   
   <style>
     :root {
@@ -21,9 +21,9 @@
       --gray: #888888;
       --light-gray: #dddddd;
       --white: #ffffff;
-      --text-gradient: linear-gradient(90deg, var(--bright-blue), #6f42c1);
+      --green: #419d7e;
+      --text-gradient: linear-gradient(90deg, var(--green), lightgreen);
     }
-
     
     * {
       margin: 0;
@@ -32,25 +32,14 @@
     }
     
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--black);
-      color: var(--white);
+      font-family: 'Almarai', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
       overflow-x: hidden;
-      cursor: none;
     }
     
     .mono {
       font-family: 'Space Mono', monospace;
-    }
-    
-    .canvas-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      z-index: -1;
-      overflow: hidden;
     }
     
     .gradient-text {
@@ -67,75 +56,16 @@
       width: 100%;
       z-index: 100;
       transition: all 0.3s ease;
+      background-color: white;
     }
     
     .nav-container {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       padding: 2rem;
       max-width: 1400px;
       margin: 0 auto;
-    }
-    
-    .logo {
-      font-weight: 700;
-      font-size: 0;
-      position: relative;
-      width: 70px;
-      height: 70px;
-    }
-
-    .logo-container{
-      position: relative;
-    }
-
-    .logo-n{
-        position: absolute;
-        width: 20px;
-        height: 60px;
-        left: 0px;
-        border-top: 5px solid var(--white);
-        border-bottom: 5px solid var(--white);
-        transform: rotate(-20deg);
-        border-radius: 5px;
-    }
-    .logo-t{
-        position: absolute;
-        width: 20px;
-        height: 60px;
-        left: 25px;
-        top: 0px;
-        border-top: 5px solid var(--white);
-        border-bottom: 5px solid var(--white);
-        border-radius: 5px;
-    }
-
-    .logo-t::before{
-        content: "";
-        position: absolute;
-        height: 5px;
-        width: 30px;
-        background-color: var(--white);
-        left: -5px;
-        top: 0px;
-        border-radius: 5px;
-    }
-
-    .logo-sphere{
-        position: absolute;
-        top: 20px;
-        left: 5px;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 5px solid var(--white);
-    }
-
-      
-    
-    .logo span {
-      color: var(--bright-blue);
     }
     
     .nav-links {
@@ -145,7 +75,7 @@
     
     .nav-link {
       position: relative;
-      color: var(--white);
+      color: var(--black);
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 500;
@@ -164,7 +94,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background-color: var(--bright-blue);
+      background-color: var(--green);
       transition: width 0.3s ease;
     }
     
@@ -180,16 +110,9 @@
       position: relative;
     }
     
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 10rem;
-    }
-    
     .hero-subtitle {
       font-size: 1.1rem;
-      color: var(--bright-blue);
+      color: var(--green);
       margin-bottom: 1.5rem;
       opacity: 0;
       transform: translateY(30px);
@@ -207,7 +130,6 @@
     .hero-description {
       font-size: 2.5rem;
       font-weight: 600;
-      color: var(--gray);
       margin-bottom: 2rem;
       opacity: 0;
       transform: translateY(30px);
@@ -215,7 +137,7 @@
     
     .hero-text {
       max-width: 600px;
-      color: var(--light-gray);
+      
       margin-bottom: 3rem;
       line-height: 1.7;
       opacity: 0;
@@ -234,45 +156,24 @@
       transition: transform 0.3s ease, color 0.3s ease;
     }
     
-    .social-link:hover {
-      color: var(--bright-blue);
-      transform: translateY(-3px);
-    }
-    .contact-social-button {\n      display: inline-flex;\n      align-items: center;\n      padding: 1rem 2.5rem;\n      border: 2px solid var(--bright-blue);\n      border-radius: 5px;\n      color: var(--bright-blue);\n      text-decoration: none;\n      font-weight: 600;\n      transition: background-color 0.3s ease, color 0.3s ease;\n      gap: 0.5rem;\n    }
-
-    .contact-social-button:hover {\n      background-color: rgba(0, 163, 255, 0.1);\n    }
-    .contact-social-button svg {\n        height: 18px;\n    }
-    
-    .contact-social-button svg path {\n        fill: var(--bright-blue);\n        transition: fill 0.3s ease;\n    }
-
-    .contact-social-button:hover svg path {\n        fill: var(--white);\n    }
-    .social-links {\n      display: flex;\n      gap: 1.5rem;\n      opacity: 0;\n      transform: translateY(30px);\n      margin-top: 1.5rem; /* added margin top */\n    }
-    .social-button {\n        display: inline-flex;\n        align-items: center;\n        padding: 1rem 2.5rem;\n        border: 2px solid var(--bright-blue);\n        border-radius: 5px;\n        color: var(--bright-blue);\n        text-decoration: none;\n        font-weight: 600;\n        transition: background-color 0.3s ease, color 0.3s ease;\n        gap: 0.5rem;\n    }\n
-    
-    .social-button:hover {\n      background-color: rgba(0, 163, 255, 0.1);\n    }\n    .social-button svg {\n        height: 18px;\n    }
-    
-    .social-button svg path {\n        fill: var(--bright-blue);\n        transition: fill 0.3s ease;\n    }
-
-    .social-button:hover svg path {\n        fill: var(--white);\n    }
-
+    .contact-social-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 1rem 0;
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      gap: 0.5rem;
     }
     
     .section-heading {
       font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 4rem;
+      color: var(--green);
+      margin-bottom: 2rem;
       display: inline-block;
       position: relative;
-    }
-    
-    .section-heading::after {
-      content: "";
-      position: absolute;
-      width: 80px;
-      height: 3px;
-      background: var(--text-gradient);
-      bottom: -15px;
-      left: 0;
     }
     
     .about-content {
@@ -283,7 +184,6 @@
     }
     
     .about-text p {
-      color: var(--light-gray);
       margin-bottom: 1.5rem;
       line-height: 1.7;
     }
@@ -298,11 +198,10 @@
     .skill-item {
       display: flex;
       align-items: center;
-      color: var(--light-gray);
     }
     
     .skill-icon {
-      color: var(--bright-blue);
+      color: var(--green);
       margin-right: 0.75rem;
     }
     
@@ -359,9 +258,9 @@
     }
     
     .project-card {
-      background: rgba(30, 30, 40, 0.5);
+      
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(136, 134, 134, 0.108);
       border-radius: 10px;
       padding: 2rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -377,7 +276,7 @@
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 1rem;
-      color: var(--white);
+      color: var(--black);
       text-decoration: none;
       display: inline-block;
       position: relative;
@@ -399,7 +298,7 @@
     }
     
     .project-card-description {
-      color: var(--light-gray);
+      color: var(--black);
       margin-bottom: 1.5rem;
       line-height: 1.7;
     }
@@ -414,6 +313,19 @@
       font-family: 'Space Mono', monospace;
       font-size: 0.8rem;
       color: var(--gray);
+    }
+
+    .project-links {
+      margin-top: 1rem;
+    }
+
+    .project-links a {
+      color: var(--green);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      margin-right: 0.25rem;
     }
     
     .contact {
@@ -515,84 +427,15 @@
         grid-template-columns: 1fr;
       }
     }
-    
-    /* Custom cursor */
-    .cursor {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: rgba(0, 163, 255, 0.5);
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition-duration: 0.0s;
-      transition: width 0.2s, height 0.2s, background-color 0.2s;
-      mix-blend-mode: difference;
-    }
-    
-    /* Magnetic effect for buttons */
-    .magnetic-button {
-      display: inline-block;
-      position: relative;
-    }
   </style>
 </head>
 <body>
-  <div class="cursor"></div>
-  <div class="canvas-container" id="canvas"></div>
-  
   <nav class="nav-wrapper">
     <div class="nav-container">
-      <a href="#home">
-        <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-          <!-- Background -->
-          <rect width="400" height="400" fill="#121212" rx="20" ry="20" />
-          
-          <!-- Cylinder - more subtle and modern -->
-          <ellipse cx="200" cy="130" rx="100" ry="30" fill="none" stroke="#666" stroke-width="1.5" stroke-opacity="0.6" />
-          <ellipse cx="200" cy="270" rx="100" ry="30" fill="none" stroke="#666" stroke-width="1.5" stroke-opacity="0.6" />
-          <line x1="100" y1="130" x2="100" y2="270" stroke="#666" stroke-width="1.5" stroke-opacity="0.6" />
-          <line x1="300" y1="130" x2="300" y2="270" stroke="#666" stroke-width="1.5" stroke-opacity="0.6" />
-          
-          <!-- Sphere with animated gradient -->
-          <circle cx="200" cy="200" r="100" fill="url(#modernSphereGradient)" />
-          
-          <!-- Gradient definitions with animations -->
-          <defs>
-            <!-- Animated gradient for sphere -->
-            <radialGradient id="modernSphereGradient" cx="170" cy="170" r="140" gradientUnits="userSpaceOnUse">
-              <!-- Initial colors -->
-              <stop offset="0%" stop-color="#4158D0">
-                <animate attributeName="stop-color" 
-                         values="#4158D0; #00DBDE; #FC00FF; #4158D0" 
-                         dur="15s" 
-                         repeatCount="indefinite" />
-              </stop>
-              <stop offset="46%" stop-color="#C850C0">
-                <animate attributeName="stop-color" 
-                         values="#C850C0; #0082c8; #FBB040; #C850C0" 
-                         dur="15s" 
-                         repeatCount="indefinite" />
-              </stop>
-              <stop offset="100%" stop-color="#FFCC70">
-                <animate attributeName="stop-color" 
-                         values="#FFCC70; #26D0CE; #ff85e4; #FFCC70" 
-                         dur="15s" 
-                         repeatCount="indefinite" />
-              </stop>
-            </radialGradient>
-          </defs>
-          
-          <!-- Subtle circular grid lines - for modern tech feel -->
-          <circle cx="200" cy="200" r="90" fill="none" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.1" />
-          <circle cx="200" cy="200" r="110" fill="none" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.1" />
-        </svg>
-      </a>
       <div class="nav-links">
-        <a href="#about" class="nav-link mono">01. About</a>
-        <a href="#projects" class="nav-link mono">02. Projects</a>
-        <a href="#contact" class="nav-link mono">03. Contact</a>
+        <!--<a href="#about" class="nav-link mono">About</a>-->
+        <a href="#projects" class="nav-link mono">Projects</a>
+        <!--<a href="#contact" class="nav-link mono">Contact</a>-->
       </div>
     </div>
   </nav>
@@ -602,7 +445,7 @@
       <p class="hero-subtitle mono">Hi, my name is</p>
       <h1 class="hero-title">Nick <span class="gradient-text">Thanasiu</span>.</h1>
       <h2 class="hero-description">I build things for the web.</h2>
-      <p class="hero-text">I'm a software developer specializing in building exceptional digital experiences. Welcome to my portfolio - currently a work in progress.</p>
+      <p class="hero-text">I'm a software engineer specializing in building exceptional digital experiences. Welcome to my portfolio - currently a work in progress.</p>
       <div class="social-links">
         <a href="mailto:nickthanasiu@gmail.com" class="contact-social-button magnetic-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -618,13 +461,15 @@
       </div>
     </section>
     
-    <section class="section" id="about">
+    <!--<section class="section" id="about">
       <h2 class="section-heading">About Me</h2>
       <div class="about-content">
         <div class="about-text">
-          <p>Hello! I'm Nick, a developer passionate about creating digital experiences that are both functional and beautiful.</p>
-          <p>My portfolio site is currently a work in progress, but I'm actively working on projects and expanding my skill set.</p>
-          <p>Here are a few technologies I've been tinkering with recently:</p>
+          <p>
+            Hello! I'm Nick, a developer passionate about creating digital experiences that are both functional and beautiful.
+            <br>My portfolio site is currently a work in progress, but I'm actively working on projects and expanding my skill set.
+            <br>Here are a few technologies I've been tinkering with recently:
+          </p>
           <div class="skills-grid">
           <div class="skill-item">
             <span class="skill-icon">▹</span>
@@ -632,7 +477,7 @@
           </div>
           <div class="skill-item">
             <span class="skill-icon">▹</span>
-            React
+            React 
           </div>
           <div class="skill-item">
             <span class="skill-icon">▹</span>
@@ -647,30 +492,33 @@
         </div>
         <!--<div class="photo-container">
           <div class="photo-frame"></div>
-          <div class="photo">
+          <div class="photo">rame"></div>
             <img src="https://via.placeholder.com/300x300" alt="Nick Thanasiu" />
-          </div>
-        </div>
-      </div>-->
-    </section>
-    
+          </div> src="https://via.placeholder.com/300x300" alt="Nick Thanasiu" />
+        </div>v>
+      </div>
+    </section>-->
     <section class="section" id="projects">
       <h2 class="section-heading">Projects</h2>
       <div class="projects-grid">
-        <div class="project-card">
+        <div class="project-card" id="parsenip">
           <h3>
             <a href="https://parsenip.onrender.com/" class="project-title">Parsenip</a>
           </h3>
           <p class="project-card-description">
-            A browser-based interpreter for parsing and analyzing data structures with an intuitive interface.
+            A browser-based tool for visualizing how your JavaScript is tokenized, parsed and interpreted.
           </p>
           <div class="project-tags">
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">Interpreter Design</span>
-            <span class="project-tag">Browser API</span>
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">Compilers/Interpreters</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/nickthanasiu/parsenip" class="project-link">Code</a>
+            <a href="https://parsenip.onrender.com/" class="project-link">Demo</a>
           </div>
         </div>
-        <div class="project-card">
+        <div class="project-card" id="bespelling">
           <h3>
             <a href="https://be-spelling.onrender.com/" class="project-title">Be Spelling</a>
           </h3>
@@ -683,108 +531,22 @@
             <span class="project-tag">Go</span>
             <span class="project-tag">MongoDB</span>
           </div>
+          <div class="project-links">
+            <a href="https://github.com/nickthanasiu/bespelling" class="project-link">Code</a>
+            <a href="https://be-spelling.onrender.com/" class="project-link">Demo</a>
+          </div>
         </div>
       </div>
     </section>
-    
-    <section class="section contact" id="contact">
-      <h2 class="section-heading contact-heading" style="margin-right: 10px">Get In Touch</h2>
-      <div class="social-links">
-        <a href="mailto:nickthanasiu@gmail.com" class="contact-social-button magnetic-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/nick-thanasiu-6b09931b9/" class="contact-social-button magnetic-button" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-            <rect x="2" y="9" width="4" height="12"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-        </a>
-
-      </div>
-    </section>
   </main>
-  
   <footer class="footer">
     <p>Designed & Built by Nick Thanasiu</p>
     <p>© 2025</p>
   </footer>
-  
   <script>
     // Initialize GSAP ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
-    
-    // Create a simple animated gradient background
-    const canvas = document.getElementById('canvas');
-    const ctx = document.createElement('canvas').getContext('2d');
-    const canvasElement = ctx.canvas;
-    
-    canvasElement.width = window.innerWidth;
-    canvasElement.height = window.innerHeight;
-    canvas.appendChild(canvasElement);
-    
-    // Background animation settings
-    const colors = [
-      { r: 10, g: 15, b: 44 },
-      { r: 0, g: 0, b: 10 }
-    ];
-    
-    // Animate gradient
-    function drawGradient(t) {
-      const gradient = ctx.createLinearGradient(0, 0, canvasElement.width, canvasElement.height);
-      
-      // Subtle movement of gradient over time
-      const shift = (Math.sin(t / 5000) + 1) / 2; // Value between 0 and 1
-      
-      // Update gradient colors with slight animation
-      gradient.addColorStop(0, `rgb(${colors[0].r}, ${colors[0].g}, ${colors[0].b})`);
-      gradient.addColorStop(1, `rgb(${colors[1].r}, ${colors[1].g}, ${colors[1].b})`);
-      
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvasElement.width, canvasElement.height);
-      
-      // Add subtle noise effect
-      const imageData = ctx.getImageData(0, 0, canvasElement.width, canvasElement.height);
-      const data = imageData.data;
-      
-      for (let i = 0; i < data.length; i += 4) {
-        // Add very subtle noise to only some pixels
-        if (Math.random() > 0.99) {
-          const noise = Math.random() * 10 - 5;
-          data[i] = Math.min(255, Math.max(0, data[i] + noise));
-          data[i+1] = Math.min(255, Math.max(0, data[i+1] + noise));
-          data[i+2] = Math.min(255, Math.max(0, data[i+2] + noise));
-        }
-      }
-      
-      ctx.putImageData(imageData, 0, 0);
-      
-      // Add subtle glow points
-      const numGlowPoints = 10;
-      for (let i = 0; i < numGlowPoints; i++) {
-        const x = Math.sin(t / 2000 + i) * canvasElement.width / 3 + canvasElement.width / 2;
-        const y = Math.cos(t / 2000 + i * 0.7) * canvasElement.height / 3 + canvasElement.height / 2;
-        
-        const glow = ctx.createRadialGradient(x, y, 0, x, y, 100 + Math.sin(t / 1000 + i) * 50);
-        glow.addColorStop(0, 'rgba(0, 163, 255, 0.05)');
-        glow.addColorStop(1, 'rgba(0, 163, 255, 0)');
-        
-        ctx.fillStyle = glow;
-        ctx.fillRect(0, 0, canvasElement.width, canvasElement.height);
-      }
-      
-      requestAnimationFrame((newT) => drawGradient(newT));
-    }
-    
-    // Start animation
-    drawGradient(0);
-    
-    // Handle resize
-    window.addEventListener('resize', () => {
-      canvasElement.width = window.innerWidth;
-      canvasElement.height = window.innerHeight;
-    });
-    
+    gsap.registerPlugin(ScrollTrigger);
     // Hero animations
     gsap.to('.hero-subtitle', {
       opacity: 1,
@@ -792,48 +554,29 @@
       duration: 0.6,
       delay: 0.2
     });
-    
     gsap.to('.hero-title', {
       opacity: 1,
       y: 0,
       duration: 0.6,
       delay: 0.4
     });
-    
     gsap.to('.hero-description', {
       opacity: 1,
       y: 0,
       duration: 0.6,
       delay: 0.6
     });
-    
     gsap.to('.hero-text', {
       opacity: 1,
       y: 0,
       duration: 0.6,
       delay: 0.8
     });
-    
     gsap.to('.social-links', {
       opacity: 1,
       y: 0,
       duration: 0.6,
       delay: 1
-    });
-    
-    // Navbar scroll effect
-    const navWrapper = document.querySelector('.nav-wrapper');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        navWrapper.style.background = 'rgba(10, 15, 44, 0.8)';
-        navWrapper.style.backdropFilter = 'blur(10px)';
-        navWrapper.style.padding = '1rem 0';
-      } else {
-        navWrapper.style.background = 'transparent';
-        navWrapper.style.backdropFilter = 'none';
-        navWrapper.style.padding = '2rem 0';
-      }
     });
     
     // Make sure the sections are visible by setting the basic animations
@@ -844,43 +587,39 @@
         heading.style.opacity = 1;
         heading.style.transform = 'translateY(0)';
       });
-      
+
       // Reveal About section content
       const aboutText = document.querySelector('.about-text');
       const photoContainer = document.querySelector('.photo-container');
-      
       if (aboutText) {
         aboutText.style.opacity = 1;
         aboutText.style.transform = 'translateX(0)';
       }
-      
       if (photoContainer) {
         photoContainer.style.opacity = 1;
         photoContainer.style.transform = 'translateX(0)';
       }
-      
+
       // Reveal Project cards
       const projectCards = document.querySelectorAll('.project-card');
       projectCards.forEach(card => {
         card.style.opacity = 1;
         card.style.transform = 'translateY(0)';
       });
-      
+
       // Reveal Contact section
       const contactText = document.querySelector('.contact-text');
       const contactButton = document.querySelector('.contact-button');
-      
       if (contactText) {
         contactText.style.opacity = 1;
         contactText.style.transform = 'translateY(0)';
       }
-      
       if (contactButton) {
         contactButton.style.opacity = 1;
         contactButton.style.transform = 'translateY(0)';
       }
     });
-    
+
     // Scroll animations with ScrollTrigger
     ScrollTrigger.batch('.section-heading', {
       onEnter: batch => gsap.to(batch, {
@@ -891,7 +630,6 @@
       }),
       start: "top 80%"
     });
-    
     ScrollTrigger.batch('.about-text', {
       onEnter: batch => gsap.to(batch, {
         opacity: 1,
@@ -901,7 +639,6 @@
       }),
       start: "top 80%"
     });
-    
     ScrollTrigger.batch('.photo-container', {
       onEnter: batch => gsap.to(batch, {
         opacity: 1,
@@ -911,7 +648,6 @@
       }),
       start: "top 80%"
     });
-    
     ScrollTrigger.batch('.project-card', {
       onEnter: batch => gsap.to(batch, {
         opacity: 1,
@@ -921,68 +657,13 @@
       }),
       start: "top 80%"
     });
-    
-    // Custom cursor
-    const cursor = document.querySelector('.cursor');
-    
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    });
-    
-    document.addEventListener('mousedown', () => {
-      cursor.style.width = '15px';
-      cursor.style.height = '15px';
-      cursor.style.backgroundColor = 'rgba(0, 163, 255, 0.8)';
-    });
-    
-    document.addEventListener('mouseup', () => {
-      cursor.style.width = '20px';
-      cursor.style.height = '20px';
-      cursor.style.backgroundColor = 'rgba(0, 163, 255, 0.5)';
-    });
-    
-    // Hover effect for links
-    const links = document.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        cursor.style.width = '40px';
-        cursor.style.height = '40px';
-        cursor.style.backgroundColor = 'rgba(0, 163, 255, 0.2)';
-      });
-      
-      link.addEventListener('mouseleave', () => {
-        cursor.style.width = '20px';
-        cursor.style.height = '20px';
-        cursor.style.backgroundColor = 'rgba(0, 163, 255, 0.5)';
-      });
-    });
-    
-    // Magnetic effect for buttons
-    const magneticButtons = document.querySelectorAll('.magnetic-button');
-    
-    magneticButtons.forEach(button => {
-      button.addEventListener('mousemove', e => {
-        const rect = button.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        
-        button.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-      });
-      
-      button.addEventListener('mouseleave', () => {
-        button.style.transform = 'translate(0, 0)';
-      });
-    });
-    
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        
+
         if (targetElement) {
           window.scrollTo({
             top: targetElement.offsetTop,
