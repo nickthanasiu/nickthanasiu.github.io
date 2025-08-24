@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Nick Thanasiu - Projects</title>
+  <meta name="description" content="Nick Thanasiu's Portfolio Site" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --black: #000000;
+      --dark-blue: #0a0f2c;
+      --light-blue: #4169e1;
+      --bright-blue: #00a3ff;
+      --gray: #888888;
+      --light-gray: #dddddd;
+      --white: #ffffff;
+      --green: #419d7e;
+      --text-gradient: linear-gradient(90deg, var(--green), lightgreen);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Almarai', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      min-height: 100vh;
+
+      display: grid;
+      grid-template-rows: fit-content(8rem) auto fit-content(8rem);
+      grid-template-areas: "header" "main" "footer";
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--white);
+    }
+    main{
+      padding: 2rem;
+    }
+
+    footer {
+      background-color: var(--white);
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .mono {
+      font-family: 'Space Mono', monospace;
+    }
+    
+    .gradient-text {
+      background: var(--text-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .nav-wrapper {
+      width: 100%;
+      z-index: 100;
+      transition: all 0.3s ease;
+      background-color: white;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-link {
+      position: relative;
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      opacity: 1;
+    }
+    
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--green);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+    
+    .section {
+      min-height: 80vh;
+      padding: 6rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .section-heading {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 2rem;
+      display: inline-block;
+      position: relative;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .project-card {
+      background: var(--white);
+      border: 2px solid var(--light-gray);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .project-card:hover {
+      border-color: var(--green);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-title {
+      color: var(--green);
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .project-title:hover {
+      text-decoration: underline;
+    }
+    
+    .project-card-description {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .project-tag {
+      background: var(--light-gray);
+      color: var(--black);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .project-link {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--green);
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    
+    .project-link:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav-wrapper">
+      <div class="nav-container">
+        <div class="nav-links">
+          <a href="index.html" class="nav-link mono">Home</a>
+          <a href="projects.html" class="nav-link mono active">Projects</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section" id="projects">
+      <h2 class="section-heading">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card" id="parsenip">
+          <h3>
+            <a href="https://parsenip.onrender.com/" class="project-title">Parsenip</a>
+          </h3>
+          <p class="project-card-description">
+            A browser-based tool for visualizing how your JavaScript is tokenized, parsed and interpreted.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">Compilers/Interpreters</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/nickthanasiu/parsenip" class="project-link">Code</a>
+            <a href="https://parsenip.onrender.com/" class="project-link">Demo</a>
+          </div>
+        </div>
+        <div class="project-card" id="bespelling">
+          <h3>
+            <a href="https://be-spelling.onrender.com/" class="project-title">Be Spelling</a>
+          </h3>
+          <p class="project-card-description">
+            Clone of the New York Times Spelling Bee puzzle game, featuring an archive of past puzzles.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">TypeScript</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">Go</span>
+            <span class="project-tag">MongoDB</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/nickthanasiu/bespelling" class="project-link">Code</a>
+            <a href="https://be-spelling.onrender.com/" class="project-link">Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Nick Thanasiu. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Initialize GSAP
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Scroll animations with ScrollTrigger
+    ScrollTrigger.batch('.section-heading', {
+      onEnter: batch => gsap.to(batch, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        duration: 0.8
+      }),
+      start: "top 80%"
+    });
+
+    ScrollTrigger.batch('.project-card', {
+      onEnter: batch => gsap.to(batch, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        duration: 0.8
+      }),
+      start: "top 80%"
+    });
+  </script>
+</body>
+</html>

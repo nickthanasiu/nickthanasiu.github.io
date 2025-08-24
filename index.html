@@ -455,8 +455,8 @@
     <nav class="nav-wrapper">
       <div class="nav-container">
         <div class="nav-links">
-          <a href="#home" class="nav-link mono active">Home</a>
-          <a href="#projects" class="nav-link mono">Projects</a>
+          <a href="index.html" class="nav-link mono active">Home</a>
+          <a href="projects.html" class="nav-link mono">Projects</a>
         </div>
       </div>
     </nav>
@@ -665,44 +665,7 @@
     const homeSection = document.querySelector('#home');
 
 
-    // Fetch project html
-    async function fetchProjects() {
-      const response = await fetch('/pages/projects.html');
-      if (!response.ok) {
-        console.error('Failed to fetch project HTML:', response.statusText);
-        return;
-      }
 
-      document.querySelector('main').innerHTML = await response.text();
-    }
-
-    document.querySelector('.nav-link[href="#projects"]').addEventListener('click', function(e) {
-      //e.preventDefault();
-
-      window.history.pushState({}, '', '/projects');
-      fetchProjects();
-      e.target.classList.add('active'); 
-
-      document.querySelectorAll('.nav-link').forEach(link => {
-        if (link !== e.target) {
-          link.classList.remove('active');
-        }
-      });
-    });
-
-    document.querySelector('.nav-link[href="#home"]').addEventListener('click', function(e) {
-
-      window.history.pushState({}, '', '/');
-      document.querySelector('main').innerHTML = homeSection.outerHTML;
-
-      e.target.classList.add('active');
-
-      document.querySelectorAll('.nav-link').forEach(link => {
-        if (link !== e.target) {
-          link.classList.remove('active');
-        }
-      });
-    });
   </script>
 </body>
 </html>
